@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody2D.linearVelocity = new Vector2(horizontal * runSpeed, rigidbody2D.linearVelocity.y);
+        rigidbody2D.velocity = new Vector2(horizontal * runSpeed, rigidbody2D.velocity.y);
     
 		bool wasGrounded = m_Grounded;
 ;

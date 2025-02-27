@@ -51,6 +51,7 @@ public class FollowCam : MonoBehaviour
 
             pos = Vector3.Lerp(transform.position, pos, easing);
 
+
             transform.position = pos;
         }
     }
