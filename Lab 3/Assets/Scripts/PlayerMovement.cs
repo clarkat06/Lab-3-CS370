@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     public UnityEvent OnLandEvent;
 
+    public bool carrot = false;
+    private int jumpCount = 0; 
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
