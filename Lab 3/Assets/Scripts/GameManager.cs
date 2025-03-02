@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
     public static event Action OnDialogueEnded;
     bool skipLineTriggered;
 
+public void Restart(){
+    if (Input.GetKeyDown("r"))
+        Initiate.Fade("TitleScreen", Color.red, 1.0f);
+}
+
 public void StartDialogue(string[] dialogue, int startPosition, string name)
     {
         nameText.text = name + "...";
@@ -114,6 +119,6 @@ IEnumerator TypeTextUncapped(string line)
     // Update is called once per frame
     void Update()
     {
-        
+        Restart();
     }
 }
