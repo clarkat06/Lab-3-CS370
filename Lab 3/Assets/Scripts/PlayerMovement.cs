@@ -42,9 +42,10 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = false;
         }
         animator.SetFloat("horizontal", horizontal);
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && jumpCount == 0)
         {
             rigidbody2D.AddForce(Vector2.up * 2000);
+            jumpCount += 1;
             animator.SetBool("jump",true);
             Debug.Log("space key was pressed");
         }
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
 			if (colliders[i].gameObject != gameObject)
 			{
                 m_Grounded = true;
+                
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
 			}
@@ -76,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Landed() {
         animator.SetBool("jump", false);
+        jumpCount = 0;
     }
 
 }
