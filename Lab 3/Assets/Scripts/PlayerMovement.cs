@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
 
     private int jumpCount = 0;
 
+    public AudioSource audioSource1;
+    public AudioSource audioSource2;
+
 
 
 
@@ -59,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody2D.AddForce(Vector2.up * 2000);
             jumpCount += 1;
+            audioSource1.Play();
             if (carrotCount > 0 && jumpCount > 1) {
             carrotCount -= 1;
             }
@@ -69,9 +73,11 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Left Shift key was pressed");
             if(horizontal < 0){
                 rigidbody2D.AddForce(Vector2.left * 30000);
+                audioSource2.Play();
                 cabbageCount -= 1;
             } else {
                 rigidbody2D.AddForce(Vector2.right * 30000);
+                audioSource2.Play();
                 cabbageCount -= 1;
             }
         }

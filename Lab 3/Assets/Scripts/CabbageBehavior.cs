@@ -4,6 +4,7 @@ using UnityEngine;
 public class TriggerZone1 : MonoBehaviour
 {
     public PlayerMovement PlayerMovement;
+    public AudioSource audioSource;
 
     void Start()
     {
@@ -14,8 +15,9 @@ public class TriggerZone1 : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player entered trigger");
+            audioSource.Play();
             // Destroy the object
-            Destroy(gameObject);
+            Destroy(gameObject, 0.25f);
 
 
             PlayerMovement.cabbageCount++;
