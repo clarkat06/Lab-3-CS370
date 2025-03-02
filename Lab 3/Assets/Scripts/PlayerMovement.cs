@@ -49,10 +49,13 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = false;
         }
         animator.SetFloat("horizontal", horizontal);
-        if (Input.GetKeyDown("space") && jumpCount == 0)
+        if (Input.GetKeyDown("space") && jumpCount < carrotCount + 1)
         {
             rigidbody2D.AddForce(Vector2.up * 2000);
             jumpCount += 1;
+            if (carrotCount > 0 && jumpCount > 1) {
+            carrotCount -= 1;
+            }
             animator.SetBool("jump",true);
             Debug.Log("space key was pressed");
         }
