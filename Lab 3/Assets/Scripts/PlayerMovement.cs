@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     float horizontal;
     float vertical;
+    public TextMeshProUGUI carrotText;  // UI Text to display the score
+    public int carrotCount;
 
     public float runSpeed = 5f;
     private bool m_Grounded;
@@ -16,12 +20,15 @@ public class PlayerMovement : MonoBehaviour
     public UnityEvent OnLandEvent;
 
     public bool carrot = false;
-    private int jumpCount = 0; 
+    private int jumpCount = 0;
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        carrotText.text = "x" + carrotCount.ToString();
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -34,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        carrotText.text = "x" + carrotCount.ToString();
         horizontal = Input.GetAxisRaw("Horizontal");
         if (horizontal < 0) {
             spriteRenderer.flipX = true;
