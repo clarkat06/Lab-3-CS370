@@ -18,7 +18,7 @@ public class TriggerZone : MonoBehaviour
             Destroy(gameObject);
 
 
-            PlayerMovement.carrotCount++;
+            PlayerMovement.carrotCount += 1;
         }
     }
 }
