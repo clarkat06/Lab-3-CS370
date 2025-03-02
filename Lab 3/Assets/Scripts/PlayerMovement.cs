@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        // animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         if (OnLandEvent == null) {
 		    OnLandEvent = new UnityEvent();
         }
@@ -41,11 +41,11 @@ public class PlayerMovement : MonoBehaviour
         } else {
             spriteRenderer.flipX = false;
         }
-        // animator.SetFloat("horizontal", horizontal);
+        animator.SetFloat("horizontal", horizontal);
         if (Input.GetKeyDown("space"))
         {
             rigidbody2D.AddForce(Vector2.up * 2000);
-            // animator.SetBool("jump",true);
+            animator.SetBool("jump",true);
             Debug.Log("space key was pressed");
         }
 
@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 
     public void Landed() {
-        // animator.SetBool("jump", false);
+        animator.SetBool("jump", false);
     }
 
 }
