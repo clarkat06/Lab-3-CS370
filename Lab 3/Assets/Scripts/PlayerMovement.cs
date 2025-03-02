@@ -12,15 +12,19 @@ public class PlayerMovement : MonoBehaviour
     float horizontal;
     float vertical;
     public TextMeshProUGUI carrotText;  // UI Text to display the score
-    public int carrotCount;
+    public int carrotCount = 0;
+
+    public TextMeshProUGUI cabbageText;
+    public int cabbageCount = 0;
 
     public float runSpeed = 5f;
     private bool m_Grounded;
 
     public UnityEvent OnLandEvent;
 
-    public bool carrot = false;
     private int jumpCount = 0;
+
+
 
 
 
@@ -29,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         carrotText.text = "x" + carrotCount.ToString();
+        cabbageText.text = "x" + cabbageCount.ToString();
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -41,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cabbageText.text = "x" + cabbageCount.ToString();
         carrotText.text = "x" + carrotCount.ToString();
         horizontal = Input.GetAxisRaw("Horizontal");
         if (horizontal < 0) {
@@ -58,6 +64,16 @@ public class PlayerMovement : MonoBehaviour
             }
             animator.SetBool("jump",true);
             Debug.Log("space key was pressed");
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && cabbageCount > 0){
+            Debug.Log("Left Shift key was pressed");
+            if(horizontal < 0){
+                rigidbody2D.AddForce(Vector2.left * 30000);
+                cabbageCount -= 1;
+            } else {
+                rigidbody2D.AddForce(Vector2.right * 30000);
+                cabbageCount -= 1;
+            }
         }
 
         
