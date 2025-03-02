@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class StartButton : MonoBehaviour
+public class Continue : MonoBehaviour
 {
 
     public void ReactToClick() {
         Debug.Log("I've been clicked");
-        Initiate.Fade("InstructionScreen", Color.black, 1.0f);
+        Initiate.Fade("Platformer", Color.black, 1.0f);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

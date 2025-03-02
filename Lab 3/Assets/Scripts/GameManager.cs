@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
 public void Restart(){
     if (Input.GetKeyDown("r"))
-        Initiate.Fade("TitleScreen", Color.red, 1.0f);
+        Initiate.Fade("Platformer", Color.red, 1.0f);
 }
 
 public void StartDialogue(string[] dialogue, int startPosition, string name)
