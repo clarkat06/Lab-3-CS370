@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - You're almost there! Keep it up!
+  - The cabbages grant an extra abilty!
+  - Use the Left Shift button to activate a dash!

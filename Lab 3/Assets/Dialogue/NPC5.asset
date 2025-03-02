@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: NPC5
   m_EditorClassIdentifier: 
   dialogue:
-  - You have made it.
-  - You are one of the best of the best bunny climbers and should be proud.
-  - Press "R" on the map to complete your climb. Congratulations!
+  - You have made it!
+  - You are one of the best of the best bunny climbers and should be proud!
+  - Run into the flag to complete your climb. Congratulations!
