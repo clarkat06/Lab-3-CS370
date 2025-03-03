@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -121,4 +122,22 @@ IEnumerator TypeTextUncapped(string line)
     {
         Restart();
     }
+
+    void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (scene.name == "Platformer") {
+            GameManager.Instance.dialoguePanel = GameObject.Find("DialoguePanel");
+            GameManager.Instance.nameText = GameObject.Find("NameText").GetComponent<TextMeshProUGUI>();
+            GameManager.Instance.dialogueText = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
+            GameManager.Instance.dialoguePanel.SetActive(false);
+        }
+    }
+
 }
